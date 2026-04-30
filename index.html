@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>AMT HOST</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0b0f19;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 40px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.card {
+  background: #111827;
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+}
+
+.price {
+  color: orange;
+  font-size: 22px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  background: orange;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* شاشة الدفع */
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  background: #1f2937;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>الخوادم الاقتصادية</h1>
+
+<div class="container">
+
+  <div class="card">
+    <h2>اقتصادي 1</h2>
+    <p class="price">$6.99</p>
+    <button onclick="buy()">اشتراك</button>
+  </div>
+
+  <div class="card">
+    <h2>اقتصادي 2</h2>
+    <p class="price">$11.99</p>
+    <button onclick="buy()">اشتراك</button>
+  </div>
+
+  <div class="card">
+    <h2>اقتصادي 3</h2>
+    <p class="price">$15.99</p>
+    <button onclick="buy()">اشتراك</button>
+  </div>
+
+</div>
+
+<!-- شاشة الدفع -->
+<div id="popup">
+  <div class="box">
+    <h2>تم الدفع ✅</h2>
+    <p>كودك:</p>
+    <h3 id="code"></h3>
+
+    <p>توجه إلى الديسكورد وافتح تذكرة وسلم الكود</p>
+
+    <button onclick="goDiscord()">اذهب للديسكورد</button>
+  </div>
+</div>
+
+<script>
+function buy() {
+  let code = "AMT-" + Math.floor(Math.random() * 999999);
+  document.getElementById("code").innerText = code;
+  document.getElementById("popup").style.display = "flex";
+}
+
+function goDiscord() {
+  window.open("https://discord.gg/wDM6DYHFE");
+}
+</script>
+
+</body>
+</html>
