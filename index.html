@@ -8,55 +8,90 @@
 body {
   margin: 0;
   font-family: Arial;
-  background: #0a0a0a;
-  color: #e5e5e5;
+  color: white;
   text-align: center;
+
+  /* الخلفية */
+  background: url("https://cdn.discordapp.com/attachments/1484212180491571456/1499870632526086335/content.png?ex=69f65ee1&is=69f50d61&hm=2c359ffe729994e08b78befcfa7b4594b1a69c85f5e521a99b554e9689b24d0b&") no-repeat center center fixed;
+  background-size: cover;
 }
 
-/* رسالة الترحيب */
-.welcome {
-  position: fixed;
-  top: 10px;
-  right: 15px;
-  font-size: 14px;
-  color: #aaa;
+/* طبقة غامقة فوق الصورة */
+.overlay {
+  background: rgba(0,0,0,0.75);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* اللوقو */
+.logo {
+  margin-top: 40px;
+}
+
+.logo img {
+  width: 180px;
 }
 
 /* العنوان */
 h1 {
-  margin-top: 80px;
-  font-size: 40px;
+  font-size: 50px;
+  margin: 10px 0;
+  color: gold;
 }
 
-/* كرت المنتج */
+/* النص */
+.subtitle {
+  color: #ddd;
+  font-size: 18px;
+}
+
+/* المنتجات */
+.products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+}
+
 .card {
-  background: #111;
-  width: 280px;
-  margin: 40px auto;
-  padding: 25px;
+  background: rgba(0,0,0,0.8);
+  padding: 20px;
+  width: 260px;
   border-radius: 12px;
 }
 
-/* زر */
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
 button {
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 10px;
   width: 100%;
   border: none;
-  background: #ddd;
+  background: gold;
   color: black;
   border-radius: 6px;
   cursor: pointer;
 }
 
-/* مربع الديسكورد */
-.discord-box {
-  margin-top: 30px;
+/* الديسكورد */
+.discord {
+  margin-top: 40px;
+  padding: 12px;
+  border: 1px solid #555;
   display: inline-block;
-  padding: 10px 20px;
-  border: 1px solid #444;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+}
+
+/* الترحيب */
+.welcome {
+  margin-top: 30px;
+  font-size: 22px;
+  color: #ccc;
 }
 
 /* البوب اب */
@@ -66,7 +101,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   display: none;
   justify-content: center;
   align-items: center;
@@ -74,9 +109,9 @@ button {
 
 .box {
   background: #111;
-  padding: 25px;
-  border-radius: 10px;
-  width: 300px;
+  padding: 30px;
+  border-radius: 12px;
+  width: 320px;
   position: relative;
 }
 
@@ -92,25 +127,58 @@ button {
 
 <body>
 
-<div class="welcome">حياك الله في متجر نوبل ستور</div>
+<div class="overlay">
 
-<h1>NOBEL STORE</h1>
-
-<div class="card">
-  <h2>منتج 1</h2>
-  <p>سعر: $12</p>
-  <button onclick="buy()">اشتراك</button>
+<!-- اللوقو -->
+<div class="logo">
+  <img src="https://cdn.discordapp.com/attachments/1484212180491571456/1499818689040617612/ChatGPT_Image_26_2026_05_21_19_.png?ex=69f62e80&is=69f4dd00&hm=599f79e7fd32d70743ef0a409e28fc3e4b85165768e5dd3d5f1179b7fa4c301b&">
 </div>
 
-<!-- اختصار الديسكورد -->
-<div class="discord-box" onclick="goDiscord()">
+<h1>NOBEL STORE</h1>
+<p class="subtitle">أفضل متجر لبيع ملفات فايف إم وخدمات الديسكورد</p>
+
+<!-- المنتجات -->
+<div class="products">
+
+  <div class="card">
+    <img src="https://via.placeholder.com/250x150">
+    <h3>ملفات FiveM</h3>
+    <p>$12</p>
+    <button onclick="buy()">اشتراك</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/250x150">
+    <h3>بوتات ديسكورد</h3>
+    <p>$7</p>
+    <button onclick="buy()">اشتراك</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/250x150">
+    <h3>خدمات برمجية</h3>
+    <p>$15</p>
+    <button onclick="buy()">اشتراك</button>
+  </div>
+
+</div>
+
+<!-- الديسكورد -->
+<div class="discord" onclick="goDiscord()">
   discord.gg/wckgWaquq
+</div>
+
+<!-- الترحيب تحت -->
+<div class="welcome">
+  حياك الله في متجر نوبل ستور
+</div>
+
 </div>
 
 <!-- البوب اب -->
 <div id="popup">
   <div class="box">
-    
+
     <span class="close" onclick="closePopup()">❌</span>
 
     <h2>تم الطلب ✅</h2>
